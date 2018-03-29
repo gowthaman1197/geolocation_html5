@@ -9,7 +9,7 @@
 		var geoloc = navigator.geolocation;
 		if (geoloc) {
 			navigator.geolocation.getCurrentPosition(function(position){
-				var position_info = "Your current postion is (" + " Latitude: " + position.coords.latitude + " & " + "Longitude: " + position.coords.longitude + " )";
+				var position_info = "Your current postion is (" + " Latitude: " + position.coords.latitude + " & " + "Longitude: " + position.coords.longitude + " Accurate: " + position.coords.accuracy + " )";
 				document.getElementById("lat_long").innerHTML = position_info;
 
 			});

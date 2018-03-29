@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dispaly map</title>
+	<style type="text/css">
+		#map{
+			width: 350px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	<script type="text/javascript">
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(successPosition);
+		}else{
+			document.getElementById('map').innerHTML = "ERROR";
+		}
+
+		function successPosition(position){
+			var lat = position.coords.latitude;
+			var long = position.coords.longitude;
+			//window.document.getElementById("map").innerHTML = lat + " " +long;
+
+			// To feed lat and long value to google maps.
+			var lat_long = new google.maps.LatLng(lat, long);
+
+			// Google maps options
+			var map_options = {
+				zoom: 16, 
+				center: lat_long,
+				mapTypeId: google.maps.MapTypeId.Statellite
+			}
+
+			// To create new map
+			var map = new google.maps.Map(document.getElementById('map'), map_options);
+
+			
+
+		}
+	</script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+</body>
+</html>
