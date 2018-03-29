@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Get latitude and longitude</title>			
+</head>
+<body>
+	<div id="lat_long"></div>
+	<script type="text/javascript">
+		var geoloc = navigator.geolocation;
+		if (geoloc) {
+			navigator.geolocation.watchPosition(function(position){
+				var position_info = "Your current postion is (" + " Latitude: " + position.coords.latitude + " & " + "Longitude: " + position.coords.longitude + " Accurate: " + position.coords.accuracy + " )";
+				document.getElementById("lat_long").innerHTML = position_info;
+
+			});
+		}else{
+			document.getElementById("lat_long").innerHTML = "<p>This browser is not supporting geolocation. </p>";
+		}
+	</script>
+
+</body>
+</html>
